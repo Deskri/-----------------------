@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <header id="header">
+    </header>
+    <script src="js/Header.js"></script>
+
+    <div class="container">
+        <div class="row mt-2">
+            <div class="col-12">
+                <h1 class="text-center">Моделирование источников сообщений в вычислительных системах.</h1>
+            </div>
+            <div class="col-12 mt-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center">Таблица полученных сообщений</h4>
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Тип</th>
+                                    <th scope="col">Адрес</th>
+                                    <th scope="col">Длина</th>
+                                    <th scope="col">Время</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body-message">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 mt-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center">Таблица вероятностей появления заявок</h4>
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Тип</th>
+                                    <th scope="col">Колличество</th>
+                                    <th scope="col">p(факт.)</th>
+                                    <th scope="col">р(теор.)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body-request">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 mt-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center">Таблица длин типов заявок</h4>
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Тип</th>
+                                    <th scope="col">Средняя длина</th>
+                                    <th scope="col">Максимальная длина</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body-length">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 mt-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center">Таблица сравнения средних частот</h4>
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Тип</th>
+                                    <th scope="col">Колличество</th>
+                                    <th scope="col">Средняя частота</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body-frequency">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 mt-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center">Характеристики</h4>
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Тип</th>
+                                    <th scope="col">Математическое ожидание</th>
+                                    <th scope="col">Дисперсия</th>
+                                    <th scope="col">Среднеквадратичное отклонение</th>
+                                    <th scope="col">Интенсивность</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body-characteristics">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 mt-4 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center">Данные о сообщениях потока</h4>
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col" rowspan="2">Тип сообщения</th>
+                                    <th scope="col" rowspan="2">Характеристики</th>
+                                    <th scope="col" colspan="5">Номер абоненского аппарата</th>
+                                </tr>
+                                <tr>
+                                    <th scope="col">1</th>
+                                    <th scope="col">2</th>
+                                    <th scope="col">3</th>
+                                    <th scope="col">4</th>
+                                    <th scope="col">5</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body-streams">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="js/Message.js"></script>
+</body>
+
+</html>

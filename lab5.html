@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <header id="header">
+    </header>
+    <script src="js/Header.js"></script>
+
+    <div class="container">
+        <div class="row mt-2">
+            <div class="col-12">
+                <h1 class="text-center">Стохастические сетевые модели вычислительных систем.</h1>
+            </div>
+
+            <div class="col-12 mt-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center">Исходные данные</h4>
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th colspan="5" class="text-center">Элементы матрицы вероятностей передач</th>
+                                    <th class="text-center">λo</th>
+                                    <th class="text-center">Vi</th>
+                                    <th class="text-center">K1</th>
+                                    <th class="text-center">K2</th>
+                                    <th class="text-center">K3</th>
+                                    <th class="text-center">K4</th>
+                                    <th class="text-center">K5</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-center">P13</td>
+                                    <td class="text-center">P23</td>
+                                    <td class="text-center">P31</td>
+                                    <td class="text-center">P42</td>
+                                    <td class="text-center">P53</td>
+                                    <td class="text-center">1</td>
+                                    <td class="text-center">3.0</td>
+                                    <td class="text-center">4</td>
+                                    <td class="text-center">1</td>
+                                    <td class="text-center">1</td>
+                                    <td class="text-center">2</td>
+                                    <td class="text-center">3</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 mt-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center">Первоначальное построение матрицы</h4>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="text-center"></th>
+                                    <th class="text-center">S0</th>
+                                    <th class="text-center">S1</th>
+                                    <th class="text-center">S2</th>
+                                    <th class="text-center">S3</th>
+                                    <th class="text-center">S4</th>
+                                    <th class="text-center">S5</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th class="text-center">S0</th>
+                                    <td class="text-center"></td>
+                                    <td class="text-center">1</td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">S1</th>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center">P13</td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">S2</th>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center">P23</td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">S3</th>
+                                    <td class="text-center"></td>
+                                    <td class="text-center">P31</td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">S4</th>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center">P42</td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">S5</th>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center">P53</td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 mt-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center">Расчет матрицы</h4>
+                    </div>
+                    <div class="card-body">
+
+                        <h5>
+                            Для расчета P, который находится по формуле P = 1 / N необходимо расчитать N. По заданию
+                            расчитывается, как: N1 - число букв фамилии, N2 - число букв имени, N3 - число букв
+                            отчества, N4 = N1+N2, N5 = N1+N3.
+                        </h5>
+
+                        <p id="N1" class="text-center"></p>
+                        <p id="N2" class="text-center"></p>
+                        <p id="N3" class="text-center"></p>
+                        <p id="N4" class="text-center"></p>
+                        <p id="N5" class="text-center"></p>
+
+                        <h5>Теперь мы можем найти P.</h5>
+
+                        <p id="P1" class="text-center"></p>
+                        <p id="P2" class="text-center"></p>
+                        <p id="P3" class="text-center"></p>
+                        <p id="P4" class="text-center"></p>
+                        <p id="P5" class="text-center"></p>
+
+                        <table class="table table-bordered">
+
+                            <thead>
+                                <tr>
+                                    <th class="text-center"></th>
+                                    <th class="text-center">S0</th>
+                                    <th class="text-center">S1</th>
+                                    <th class="text-center">S2</th>
+                                    <th class="text-center">S3</th>
+                                    <th class="text-center">S4</th>
+                                    <th class="text-center">S5</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th class="text-center">S0</th>
+                                    <td class="text-center"></td>
+                                    <td class="text-center">1</td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">S1</th>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center" id="tdP1"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">S2</th>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center" id="tdP2"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">S3</th>
+                                    <td class="text-center"></td>
+                                    <td class="text-center" id="tdP3"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">S4</th>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center" id="tdP4"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">S5</th>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"id="tdP5"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <h5>Теперь необходимо дополнить некоторые ячейки таблицы. Будем заполнять P10 P25 P34 P45 P55</h5>
+
+                        <table class="table table-bordered">
+
+                            <thead>
+                                <tr>
+                                    <th class="text-center"></th>
+                                    <th class="text-center">S0</th>
+                                    <th class="text-center">S1</th>
+                                    <th class="text-center">S2</th>
+                                    <th class="text-center">S3</th>
+                                    <th class="text-center">S4</th>
+                                    <th class="text-center">S5</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th class="text-center">S0</th>
+                                    <td class="text-center"></td>
+                                    <td class="text-center">1</td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">S1</th>
+                                    <td class="text-center" id="P10"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center" id="td2P1"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">S2</th>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center" id="td2P2"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center" id="P25"></td>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">S3</th>
+                                    <td class="text-center"></td>
+                                    <td class="text-center" id="td2P3"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center" id="P34"></td>
+                                    <td class="text-center"></td>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">S4</th>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center" id="td2P4"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center" id="P45"></td>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">S5</th>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center"id="td2P5"></td>
+                                    <td class="text-center"></td>
+                                    <td class="text-center" id="P55"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 mt-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center">Интенсивность</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5>В нашем примере интенсивность входного потока заявок λo = 1. Cчитается, что все СМО имеют одинаковую среднюю длительность обслуживания заявок, т.е. V1 = V2 = V3 = V4 = V5 = 3,0.</h5>
+                        <h5>Теперь необходимо составить систему уравнений.</h5>
+                        <p class="text-center">λ0 = P10 * λ1</p>
+                        <p class="text-center">λ1 = P31 * λ3</p>
+                        <p class="text-center">λ2 = P42 * λ4</p>
+                        <p class="text-center">λ3 = P13 * λ1 + P23 * λ2 + P53 * λ5</p>
+                        <p class="text-center">λ4 = P34 * λ3</p>
+                        <p class="text-center">λ5 = P25 * λ2 + P45 * λ4 + P55 * λ5</p>
+                        <h5>Результат вычислений:</h5>
+                        <p class="text-center" id="L0"></p>
+                        <p class="text-center" id="L1"></p>
+                        <p class="text-center" id="L2"></p>
+                        <p class="text-center" id="L3"></p>
+                        <p class="text-center" id="L4"></p>
+                        <p class="text-center" id="L5"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 mt-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center">Коэффициенты передач</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5>Определяем коэффициенты передач αj СМО по формуле λj = λo αj:</h5>
+                        <p class="text-center" id="A1"></p>
+                        <p class="text-center" id="A2"></p>
+                        <p class="text-center" id="A3"></p>
+                        <p class="text-center" id="A4"></p>
+                        <p class="text-center" id="A5"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 mt-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center">Определение характеристик разомкнутых стохастических сетей. Проверка условия стационарного режима.</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5>Проверка условия существования стационарного режима:</h5>
+                        <p class="text-center" id="check"></p>
+                        <h5>Условие стационарности выполняется.</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 mt-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center">Среднее число занятых каналов.</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5>Вычисляем среднее число занятых каналов βi = λiVi</h5>
+                        <p class="text-center" id="B1"></p>
+                        <p class="text-center" id="B2"></p>
+                        <p class="text-center" id="B3"></p>
+                        <p class="text-center" id="B4"></p>
+                        <p class="text-center" id="B5"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 mt-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center">Загрузка каждой СМО.</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5>Вычисляем по формуле ρi = λiVi / Ki</h5>
+                        <p class="text-center" id="p1"></p>
+                        <p class="text-center" id="p2"></p>
+                        <p class="text-center" id="p3"></p>
+                        <p class="text-center" id="p4"></p>
+                        <p class="text-center" id="p5"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 mt-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center">Вероятности состояния сети.</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5>Подставляя в формулу πi = 1 - ρi полученные значения ρi, определим вероятности простоя каждой СМО сети.</h5>
+                        <p class="text-center" id="pi1"></p>
+                        <p class="text-center" id="pi2"></p>
+                        <p class="text-center" id="pi3"></p>
+                        <p class="text-center" id="pi4"></p>
+                        <p class="text-center" id="pi5"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 mt-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center">Средняя длина очереди заявок, ожидающих обслуживания в СМО.</h4>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-center" id="l1"></p>
+                        <p class="text-center" id="l2"></p>
+                        <p class="text-center" id="l3"></p>
+                        <p class="text-center" id="l4"></p>
+                        <p class="text-center" id="l5"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 mt-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center">Среднее число заявок, пребывающих в каждой из систем сети.</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5>Вычисляем по формуле mi = li+βi</h5>
+                        <p class="text-center" id="m1"></p>
+                        <p class="text-center" id="m2"></p>
+                        <p class="text-center" id="m3"></p>
+                        <p class="text-center" id="m4"></p>
+                        <p class="text-center" id="m5"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 mt-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center">Среднее время ожидания заявки в очереди системы.</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5>Вычисляем по формуле ωi = li / λi</h5>
+                        <p class="text-center" id="w1"></p>
+                        <p class="text-center" id="w2"></p>
+                        <p class="text-center" id="w3"></p>
+                        <p class="text-center" id="w4"></p>
+                        <p class="text-center" id="w5"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 mt-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center">Среднее время пребывания заявок в системах.</h4>
+                    </div>
+                    <div class="card-body">
+                        <h5>Вычисляем по формуле ui = mi / λi</h5>
+                        <p class="text-center" id="u1"></p>
+                        <p class="text-center" id="u2"></p>
+                        <p class="text-center" id="u3"></p>
+                        <p class="text-center" id="u4"></p>
+                        <p class="text-center" id="u5"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 mt-4 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="text-center">Характеристики цепи.</h4>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-center" id="L"></p>
+                        <p class="text-center" id="M"></p>
+                        <p class="text-center" id="W"></p>
+                        <p class="text-center" id="U"></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="js/StochasticNetworkModels.js"></script>
+</body>
+
+</html>
